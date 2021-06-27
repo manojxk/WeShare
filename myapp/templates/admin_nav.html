@@ -1,0 +1,230 @@
+<html lang="en">
+    <head>
+        {% load static %}
+        <title>Share N Learn</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="static/images/myicon.png">
+        <link type="text/css" rel="stylesheet" href="static/css/mystyle.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <!-- link static files with templates -->
+        <link type="text/css" rel="stylesheet" href ="{% static 'css/mystyle.css' %}">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="base.css">
+        <style>
+             #nav {
+    			padding: 20px;
+    			text-align:center;
+                        color: black;
+    			position: fixed;
+    			height: 100%;
+    			top: 0;
+    			width: 80%;
+    			max-width: 200px;
+    			background:#d1d8e0;
+    			box-shadow: 3px 0 10px #4b7bec;
+    		}
+    		#nav:not(:target) {
+    			left: -100%;
+    			transition: left 1.5s;
+    		}
+    		#nav:target {
+    			left: 0;
+    			transition: left 1s;
+    		}
+               header,nav{
+	           display: block;
+                }
+
+              ul {
+	         list-style: none;
+                 }
+
+              html {
+                  box-sizing: border-box;
+                   }
+              *, *:before, *:after {
+                      box-sizing: inherit;
+                    }
+              html {
+                font-size: 62.5%;
+                 }
+              h1 {
+                font-size: 3rem;
+                 display: inline-block;
+                 }
+            a,.submenu a {
+                text-decoration:none;
+                color: inherit; 
+              }
+          .wrapper {
+	        margin: 0 auto;
+	       width: 90%;
+	       max-width: 800px;
+               }
+          header {
+	         background:#d1d8e0; 
+                 margin-bottom: 30px;
+	         position: fixed;
+	         top: 0;
+	         left: 0;
+	         width: 100%;
+	
+                }
+
+          header .wrapper {
+	         display: flex;
+	         justify-content: space-between;
+	         align-items: center;
+               }
+        .mainmenu {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                line-height: 50px;
+                font-size:15px;
+                max-height: 0;
+               }
+          .mainmenu li:hover .submenu {
+               display: block;
+               max-height: 200px;
+               }
+           .submenu {
+               overflow: hidden;
+               max-height: 0;
+               -webkit-transition: all 0.5s ease-out;
+               list-style: none;
+               text-decoration:none;
+               padding: 0;
+               margin: 0;
+               line-height: 50px;
+              }
+
+            /* .button {
+                 border: none;
+                 color: black;  
+                 text-align: center;
+                 text-decoration: none;
+                 display: inline-block;
+                 font-size: 30px;
+                 margin: 4px 2px;
+                 transition-duration: 0.4s;
+                 cursor: pointer;
+                } */
+          .button1 {
+                 background-color: white; 
+                 color: black; 
+                 border: 2px solid #4b7bec;
+                 padding:15px 32px ;
+                 font-size:15px;
+             }
+
+          .button1:hover {
+                  background-color: #4b7bec;
+                  color: white;
+               }
+          .button2 {
+               background-color:#d1d8e0; 
+               color: black;
+               border:none; 
+               width:100%;
+               height:40px;
+               border-radius: 12px;
+                }
+
+           .button2:hover {
+                background-color:white;
+                color:#4b7bec;
+          }
+       </style>
+    </head>
+
+    <body>
+<br>
+       <header>
+    <div class="wrapper">
+      <h1>Hey Welcome</h1>
+      <a href="#nav" aria-label="Open Navigation"><button class="button1">MENU</button></a>
+    </div>
+  </header>
+
+ 
+  <nav id="nav">
+    <a href="#" aria-label="Close Navigation"><i class="fa fa-times"></i></a>
+
+    <ul class="mainmenu">
+<li><button class="button2"><a href="{%url 'index'%}"><i class="fa fa-home"  aria-hidden="true">  HOME</i></a></button></li>
+      <hr>
+     <li>VIEW NOTES<br>
+ <ul class="submenu">
+         <li><button class="button2"><a href="{%url 'pending_notes'%}">PENDING</a></button></li>
+        <li><button class="button2"><a href="{%url 'accepted_notes'%}">ACCEPTED</a></button></li>
+        <li><button class="button2"><a href="{%url 'rejected_notes'%}">REJECTED</a></button></li>
+        <li><button class="button2"><a href="{%url 'all_notes'%}">ALL</a></button></li>
+      </ul></li>
+      <hr>
+        <li><button class="button2"><a href="{%url 'view_users'%}"><i class="fa fa-users" aria-hidden="true">  VIEW USERS</i></a></button></li>
+        <hr>
+        <li><button class="button2"><a href="{%url 'logout'%}"><i class="fa fa-sign-out" aria-hidden="true">  LOGOUT</i></a></button></li>
+     <hr>
+    </ul>
+  </nav>
+  <div class="col-md-8">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+
+</div>
+<br>
+<button class="scrollToTopBtn">☝️</button>
+<script>
+    var target = document.querySelector("footer");
+
+    var scrollToTopBtn = document.querySelector(".scrollToTopBtn")
+    var rootElement = document.documentElement
+
+    // Next we want to create a function that will be called when that element is intersected
+    function callback(entries, observer) {
+    // The callback will return an array of entries, even if you are only observing a single item
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+        // Show button
+        scrollToTopBtn.classList.add("showBtn")
+        } else {
+        // Hide button
+        scrollToTopBtn.classList.remove("showBtn")
+        }
+    });
+    }
+
+    function scrollToTop() {
+    rootElement.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    })
+    }
+    scrollToTopBtn.addEventListener("click", scrollToTop);
+        
+    // Next we instantiate the observer with the function we created above. This takes an optional configuration
+    // object that we will use in the other examples.
+    let observer = new IntersectionObserver(callback);
+    // Finally start observing the target element
+    observer.observe(target);
+</script>
+    </body>
+</html>
+
+
+
+{% block body %}
+{% endblock %}
